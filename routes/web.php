@@ -21,6 +21,6 @@ Route::get('/entries/{entry}/edit', [App\Http\Controllers\EntryController::class
 
 Route::put('/entries/{entry}', [App\Http\Controllers\EntryController::class, 'update']);
 
-Route::get('/users/{user}', [App\Http\Controllers\UserController::class, 'show']);
+Route::get('@{user}', [App\Http\Controllers\UserController::class, 'show']);
 
 

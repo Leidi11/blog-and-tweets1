@@ -9,19 +9,23 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
+                    @if ($entries->isEmpty())
+                    <p>You did't publish any entry yet.</p>
+                    @else
                     <p>My Entries</p>
                     <ul>
                         @foreach ($entries as $entry)
-                        <li> 
+                        <li>
                             <a href="{{ $entry->getUrl()/*url('entries/'.$entry -> id)*/}}">{{ $entry -> title }}</a>
                         </li>
                         @endforeach
                     </ul>
+                    @endif
                 </div>
             </div>
         </div>
